@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html>
+	<head>
+		<!-- Loading in TensorFlow.js version 2.11.2 -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+	</head>
+	<body onload="populateCategoriesList()">
+		<div id="info">
+			<h1>Image Categorizer</h1>
+			<h3>
+				The Categorizer will tell you <br>
+				if the uploaded image falls among <br>
+				the following categories
+			</h3>
+			<ul id="categories">
+				
+			</ul>
+		</div>
+
+		<div id="main">
+			<label for="imageFile">Upload Image</label>
+			<input type="file" id="imageFile" name="imageFile">
+
+			<div id="result">
+
+			</div>
+		</div>
+
+		<script>
+			var categories = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'];
+
+			var fileInput = document.querySelector("input[name='imageFile']");
+			fileInput.addEventListener("change", uploadedImage);
+
+			function populateCategoriesList(){
+				var list = document.getElementById('categories');
+
+				for (var i = 0; i < categories.length; i++){
+					var newElement = document.createElement("li");
+					newElement.innerHTML = categories[i];
+
+					list.appendChild(newElement);
+				}
+			}
+
+			function uploadedImage() {
+				predictImage(this.value);
+			}
+
+			function compareImage(data){
+				// check if the image is valid for comparison
+
+				// run the prediction
+
+				// display results
+			}
+		</script>
+	</body>
+</html>
